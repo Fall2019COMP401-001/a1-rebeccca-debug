@@ -36,6 +36,7 @@ public class A1Jedi {
 			lastName.add(scan.next());
 			
 			int numItems = scan.nextInt();
+			String[] tempItems = new String[numItems];
 			
 			for ( int a = 0; a < numItems; a++)
 			{
@@ -43,6 +44,19 @@ public class A1Jedi {
 				int quantityPerItem = scan.nextInt();
 				custFood.itemQuant = quantityPerItem;
 				custFood.itemName = scan.next();
+				boolean inList = false;
+				for ( int b = 0; b < numItems; b++)
+				{
+					if( tempItems[b].equals(custFood.itemName))
+					{
+						inList = true;
+					}
+				}
+				if (!inList)
+				{
+					custFood.customerCount++;
+				}
+				tempItems[a] = custFood.itemName;
 				custItemList.add(custFood);
 			}
 				
@@ -56,7 +70,7 @@ public class A1Jedi {
 					int tempQuant = custItemList.get(y).itemQuant;
 					int newQuant = tempQuant + itemList.get(z).itemQuant;
 					itemList.get(z).itemQuant = newQuant;
-					itemList.get(z).customerCount++;
+					itemList.get(z).customerCount += custItemList.get(y).customerCount;
 				}
 			}
 		}
