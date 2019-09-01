@@ -45,7 +45,7 @@ public class A1Jedi {
 				custFood.itemQuant = quantityPerItem;
 				custFood.itemName = scan.next();
 				boolean inList = false;
-				for ( int b = 0; b < numItems; b++)
+				for ( int b = 0; b < a; b++)
 				{
 					if( tempItems[b].equals(custFood.itemName))
 					{
